@@ -1,4 +1,26 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges, ViewChild} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
+
+interface Country {
+  name: string;
+  checked: boolean;
+  status: string;
+  area: number;
+  population: number;
+  date: Date;
+}
+
+//1. structures - NgIf ngFor
+//2. attributed - ngStyle, ngClass,
+
 
 @Component({
   selector: 'app-table',
@@ -7,41 +29,46 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange,
 })
 export class TableComponent implements OnInit, OnChanges {
 
-  countries = [
+  countries: Country[] = [
     {
       name: 'Ukraine',
       checked: true,
       status: 'Done',
       area: 535344,
-      population: 54332
+      population: 54332,
+      date: new Date()
     },
     {
       name: 'Canada',
       checked: true,
       status: 'Done',
       area: 53554,
-      population: 1221221
+      population: 1221221,
+      date: new Date()
     },
     {
       name: 'China',
       checked: true,
       status: 'Done',
       area: 535344,
-      population: 12221
+      population: 12221,
+      date: new Date()
     },
     {
       name: 'France',
       checked: true,
       status: 'Done',
       area: 5322244,
-      population: 12131221
+      population: 12131221,
+      date: new Date()
     },
     {
       name: 'Spain',
       checked: true,
       status: 'Done',
       area: 5344,
-      population: 12131
+      population: 12131,
+      date: new Date()
     }
   ];
 
@@ -67,12 +94,12 @@ export class TableComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
-  changeCheckboxValue(country) {
+  changeCheckboxValue(country: Country) {
     country.checked = !country.checked;
     country.status = country.checked ? 'Done' : 'In progress';
   }
 
-  edit(country, index) {
+  edit(country: Country, index: number) {
     this.emitValueToEdit.emit({country: country, index: index});
     // this.emitValueToEdit.emit({country, index});
   }
