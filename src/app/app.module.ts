@@ -3,9 +3,11 @@ import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppComponent} from './app.component';
 import {TableComponent} from './table/table.component';
-import { InputBarComponent } from './input-bar/input-bar.component';
-import { CustomPipePipe } from './custom-pipe.pipe';
-import { ColorDirDirective } from './color-dir.directive';
+import {InputBarComponent} from './input-bar/input-bar.component';
+import {CustomPipePipe} from './custom-pipe.pipe';
+import {ColorDirDirective} from './color-dir.directive';
+import {FormComponent} from './form/form.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,11 +15,12 @@ import { ColorDirDirective } from './color-dir.directive';
     TableComponent,
     InputBarComponent,
     CustomPipePipe,
-    ColorDirDirective
+    ColorDirDirective,
+    FormComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
