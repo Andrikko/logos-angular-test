@@ -8,6 +8,10 @@ import {CustomPipePipe} from './custom-pipe.pipe';
 import {ColorDirDirective} from './color-dir.directive';
 import {FormComponent} from './form/form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {AppRoutingModule} from './app-routing.module';
+import { UserComponent } from './user/user.component';
+import { AdminComponent } from './admin/admin.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,10 +20,14 @@ import {ReactiveFormsModule} from '@angular/forms';
     InputBarComponent,
     CustomPipePipe,
     ColorDirDirective,
-    FormComponent
+    FormComponent,
+    UserComponent,
+    AdminComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     NgbModule, ReactiveFormsModule
   ],
   providers: [],
