@@ -1,0 +1,10 @@
+<div class="main">
+  <span class="material-icons user-icon">account_circle</span>
+  <app-search></app-search>
+</div>
+
+<div class="chat-rooms">
+  <div *ngFor="let chatRoom of chatRooms; let i =index">
+    <app-chat-room [chatInfo]="chatRoom"></app-chat-room>
+  </div>
+</div>

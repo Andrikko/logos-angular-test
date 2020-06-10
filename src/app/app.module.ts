@@ -1,37 +1,26 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {AppComponent} from './app.component';
-import {TableComponent} from './table/table.component';
-import {InputBarComponent} from './input-bar/input-bar.component';
-import {CustomPipePipe} from './custom-pipe.pipe';
-import {ColorDirDirective} from './color-dir.directive';
-import {FormComponent} from './form/form.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {AppRoutingModule} from './app-routing.module';
-import { UserComponent } from './user/user.component';
-import { AdminComponent } from './admin/admin.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ChatComponent } from './chat/chat.component';
+import { RoomsComponent } from './rooms/rooms.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent,
-    InputBarComponent,
-    CustomPipePipe,
-    ColorDirDirective,
-    FormComponent,
-    UserComponent,
-    AdminComponent,
-    NotFoundComponent
+    ChatComponent,
+    RoomsComponent,
+    ChatRoomComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    NgbModule, ReactiveFormsModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

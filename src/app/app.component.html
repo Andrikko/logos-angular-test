@@ -1,24 +1,4 @@
-<!--<app-input-bar [text]="'Add'" (pushValue)="afterPush($event)"></app-input-bar>-->
-
-<!--<app-table [newCountry]="valueAfterPush" [editedCountry]="newValueAfterEdit" (emitValueToEdit)="edit($event)"></app-table>-->
-
-<!--<app-input-bar [text]="'Save'" [editValue]="valueAfterEdit" (editValueEvent)="afterEdit($event)"></app-input-bar>-->
-
-<!--input = з батьківської в дочірню-->
-<!--output = з дочірньої в батьківську-->
-
-
-<!--<app-form>-->
-<!--</app-form>-->
-
-<ul>
-  <li>
-    <a href="/user">User page</a>
-  </li>
-  <li>
-    <a href="/admin">Admin page</a>
-  </li>
-</ul>
-
-
-<router-outlet></router-outlet>
+<div class="content row">
+  <app-rooms class="col-4 left-side"></app-rooms>
+  <app-chat class="col-8 right-side"></app-chat>
+</div>
