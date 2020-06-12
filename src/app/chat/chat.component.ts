@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {StorageService} from '../services/storage.service';
 
 @Component({
   selector: 'app-chat',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+  chatInfo: any = null;
+
+  constructor(public storageService: StorageService) {
+  }
 
   ngOnInit(): void {
+    this.storageService.currentChatSubject.subscribe(data => {
+      this.chatInfo = data;
+    });
   }
 
 }

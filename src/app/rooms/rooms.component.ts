@@ -17,4 +17,9 @@ export class RoomsComponent implements OnInit {
     this.chatRooms = this.storageService.getAllChats();
   }
 
+  selectChat(index: number) {
+    this.storageService.getCurrentChat(index);
+    this.storageService.currentChatSubject.next(this.storageService.getCurrentChat(index));
+  }
+
 }

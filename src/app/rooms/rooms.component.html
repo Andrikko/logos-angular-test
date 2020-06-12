@@ -8,6 +8,8 @@
     <span>Chats</span>
   </div>
   <div *ngFor="let chatRoom of chatRooms; let i =index">
-    <app-chat-room [chatInfo]="chatRoom"></app-chat-room>
+    <app-chat-room [chatInfo]="chatRoom"
+                   (click)="selectChat(i)">
+    </app-chat-room>
   </div>
 </div>

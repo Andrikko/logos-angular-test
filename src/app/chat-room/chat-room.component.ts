@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {StorageService} from '../services/storage.service';
 
 @Component({
   selector: 'app-chat-room',
@@ -10,11 +11,10 @@ export class ChatRoomComponent implements OnInit {
 
   @Input() chatInfo: any;
 
-  constructor() {
+  constructor(public storageService: StorageService) {
   }
 
   ngOnInit(): void {
-    console.log(this.chatInfo);
 
   }
 

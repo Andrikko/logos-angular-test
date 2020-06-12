@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -115,7 +116,7 @@ export class StorageService {
       ]
     }
   ];
-
+  public currentChatSubject = new BehaviorSubject<any>(null);
 
   constructor() {
   }
@@ -130,6 +131,10 @@ export class StorageService {
         time: item.messages[item.messages.length - 1].data + ' ' + item.messages[item.messages.length - 1].time
       };
     });
+  }
+
+  getCurrentChat(index: number) {
+    return this.conversations[index];
   }
 
 }

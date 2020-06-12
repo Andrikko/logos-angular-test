@@ -1,1 +1,27 @@
-<p>chat works!</p>
+<div *ngIf="chatInfo" class="chat-style">
+
+  <div class="chat-header">
+    <img src="{{chatInfo.icon}}" class="chat-icon"/>
+    <span>{{chatInfo.addressedPerson}}</span>
+  </div>
+
+  <div class="chat-main">
+    <div *ngFor="let message of chatInfo.messages">
+      <div *ngFor="let messageItem of message.message"
+           appChatStyle
+           [value]="message"
+           [addressedPerson]="chatInfo.addressedPerson"
+      >
+
+        <img src="{{chatInfo.icon}}" width="30px" height="30px">
+        <span>{{messageItem}}</span>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-footer">
+    <input type="text" placeholder="Type your message" style="width: 90%">
+  </div>
+</div>
