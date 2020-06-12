@@ -4,6 +4,9 @@
 </div>
 
 <div class="chat-rooms">
+  <div class="chats-title">
+    <span>Chats</span>
+  </div>
   <div *ngFor="let chatRoom of chatRooms; let i =index">
     <app-chat-room [chatInfo]="chatRoom"></app-chat-room>
   </div>

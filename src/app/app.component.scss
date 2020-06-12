@@ -5,13 +5,16 @@
 
 .content{
   padding: 40px;
+  max-width: 1300px;
+  height: 70vh;
 }
 
 .left-side{
-  border: 1px solid black;
-  height: 50vh;
+  border: 1px solid #D3D3D3;
+  height: 100%;
 }
 .right-side{
-  border: 1px solid black;
-  height: 50vh;
+  border: 1px solid #D3D3D3;
+  height: 100%;
+  border-left: 0px;
 }

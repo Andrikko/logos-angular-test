@@ -8,7 +8,7 @@ export class StorageService {
   conversations = [
     {
       addressedPerson: 'Oleg',
-      icon: '',
+      icon: 'https://img.icons8.com/plasticine/100/000000/user.png',
       messages: [
         {
           message: ['Hi'],
@@ -35,7 +35,7 @@ export class StorageService {
     },
     {
       addressedPerson: 'Petro',
-      icon: '',
+      icon: 'https://img.icons8.com/dusk/64/000000/user.png',
       messages: [
         {
           message: ['Hi', 'how are you?'],
@@ -61,12 +61,12 @@ export class StorageService {
       ]
     },
     {
-      addressedPerson: 'Petro',
-      icon: '',
+      addressedPerson: 'Roman',
+      icon: 'https://img.icons8.com/clouds/100/000000/user-male.png',
       messages: [
         {
           message: ['Hi', 'how are you?'],
-          owner: 'Petro',
+          owner: 'Roman',
           icon: '',
           data: '06/06',
           time: '18:00'
@@ -80,7 +80,34 @@ export class StorageService {
         },
         {
           message: ['Fine, what about you?'],
-          owner: 'Petro',
+          owner: 'Roman',
+          icon: '',
+          data: '06/06',
+          time: '18:00'
+        }
+      ]
+    },
+    {
+      addressedPerson: 'Sofia',
+      icon: 'https://img.icons8.com/plasticine/100/000000/user-female.png',
+      messages: [
+        {
+          message: ['Hi', 'how are you?'],
+          owner: 'Sofia',
+          icon: '',
+          data: '06/06',
+          time: '18:00'
+        },
+        {
+          message: ['Hi, what are you doing?'],
+          owner: 'Oleg',
+          icon: '',
+          data: '06/06',
+          time: '18:00'
+        },
+        {
+          message: ['Fine, what about you?'],
+          owner: 'Sofia',
           icon: '',
           data: '06/06',
           time: '18:00'
