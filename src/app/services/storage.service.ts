@@ -14,22 +14,22 @@ export class StorageService {
           message: ['Hi'],
           owner: 'Oleg',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 12',
+          time: '12:50'
         },
         {
           message: ['Hi, what are you doing?'],
           owner: 'Ivan',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 12',
+          time: '12:50'
         },
         {
           message: ['Fine, what about you?'],
           owner: 'Oleg',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 12',
+          time: '12:50'
         }
       ]
     },
@@ -41,22 +41,22 @@ export class StorageService {
           message: ['Hi', 'how are you?'],
           owner: 'Petro',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 11',
+          time: '14:35'
         },
         {
           message: ['Hi, what are you doing?'],
           owner: 'Oleg',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 11',
+          time: '14:35'
         },
         {
           message: ['Fine, what about you?'],
           owner: 'Petro',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 11',
+          time: '14:35'
         }
       ]
     },
@@ -68,22 +68,22 @@ export class StorageService {
           message: ['Hi', 'how are you?'],
           owner: 'Roman',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 10',
+          time: '19:38'
         },
         {
           message: ['Hi, what are you doing?'],
           owner: 'Oleg',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 10',
+          time: '19:38'
         },
         {
           message: ['Fine, what about you?'],
           owner: 'Roman',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 10',
+          time: '19:38'
         }
       ]
     },
@@ -95,22 +95,22 @@ export class StorageService {
           message: ['Hi', 'how are you?'],
           owner: 'Sofia',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 8',
+          time: '09:22'
         },
         {
           message: ['Hi, what are you doing?'],
           owner: 'Oleg',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 8',
+          time: '09:22'
         },
         {
           message: ['Fine, what about you?'],
           owner: 'Sofia',
           icon: '',
-          data: '06/06',
-          time: '18:00'
+          data: 'Jun 8',
+          time: '09:22'
         }
       ]
     }
@@ -123,7 +123,8 @@ export class StorageService {
   getAllChats() {
     return this.conversations.map(item => {
       return {
-        addressedPerson: item.messages[item.messages.length - 1].owner,
+        // addressedPerson: item.messages[item.messages.length - 1].owner,
+        addressedPerson: item.addressedPerson,
         icon: item.icon,
         message: item.messages[item.messages.length - 1].message[item.messages[item.messages.length - 1].message.length - 1],
         time: item.messages[item.messages.length - 1].data + ' ' + item.messages[item.messages.length - 1].time

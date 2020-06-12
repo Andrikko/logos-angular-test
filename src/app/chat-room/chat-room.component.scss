@@ -1,16 +1,28 @@
 .message-info{
-  width: 60%;
+  width: 55%;
   //display: flex;
 }
 .message-block{
   display: flex;
-  margin-bottom: 5px;
-  align-items: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #D3D3D3;
+  height: 80px;
+}
+.message-block:hover{
+  background-color: #F6F4F6;
 }
 .chat-icon{
   border-radius: 50%;
   border: 1px solid #D3D3D3;
   width: 55px;
   background-color: #F6F4F6;
+  margin: 0px 10px;
+}
+.chat-message{
+  font-size: 15px;
+  color: #9E9E9E;
+}
+.message-time{
+  font-size: 15px;
 }
 
