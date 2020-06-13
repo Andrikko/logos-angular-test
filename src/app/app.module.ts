@@ -7,7 +7,7 @@ import { ChatComponent } from './chat/chat.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
 import { SearchComponent } from './search/search.component';
-import { ChatStyleDirective } from './chat-style.directive';
+import { ChatStyleDirective } from './directives/chat-style.directive';
 
 @NgModule({
   declarations: [
