@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {StorageService} from '../services/storage.service';
 
 @Component({
@@ -6,12 +6,12 @@ import {StorageService} from '../services/storage.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit {
-
+export class ChatComponent implements OnInit, AfterViewChecked {
   chatInfo: any = null;
 
   @ViewChild('input') input: ElementRef;
-
+  @ViewChild('scrollMe') scrollMe: ElementRef;
+  
   constructor(public storageService: StorageService) {
   }
 
@@ -21,10 +21,14 @@ export class ChatComponent implements OnInit {
     });
   }
 
+  ngAfterViewChecked() {
+    this.scrollMe.nativeElement.scrollTo(0, this.scrollMe.nativeElement.scrollHeight);
+  }
+
   sendMessage() {
     // console.log(this.input.nativeElement.value);
     // console.log(this.chatInfo);
-    
+
     let newMessage = {
       data: "Jun 12",
       icon: "",
@@ -34,7 +38,7 @@ export class ChatComponent implements OnInit {
     };
     newMessage.message.push(this.input.nativeElement.value);
     this.chatInfo.messages.push(newMessage);
-    
+
     // data: "Jun 12"
     // icon: ""
     // message: ["Hi!"]

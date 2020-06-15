@@ -5,7 +5,7 @@
     <span>{{chatInfo.addressedPerson}}</span>
   </div>
 
-  <div class="chat-main">
+  <div class="chat-main" #scrollMe>
     <div *ngFor="let message of chatInfo.messages" >
       <div *ngFor="let messageItem of message.message"
            appChatStyle
