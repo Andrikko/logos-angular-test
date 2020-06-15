@@ -12,25 +12,32 @@ export class StorageService {
       icon: 'https://img.icons8.com/plasticine/100/000000/user.png',
       messages: [
         {
-          message: ['Hi'],
+          message: ['Hi!'],
           owner: 'Oleg',
           icon: '',
           data: 'Jun 12',
           time: '12:50'
         },
         {
-          message: ['Hi, what are you doing?'],
+          message: ['Hi, what are you doing? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi ex iste, nisi reiciendis rerum sint? Et, iure, quisquam.'],
           owner: 'Ivan',
           icon: '',
           data: 'Jun 12',
           time: '12:50'
         },
         {
-          message: ['Fine, what about you?'],
+          message: ['Fine, what about you? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi ex iste, nisi reiciendis rerum sint? Et, iure, quisquam.'],
           owner: 'Oleg',
           icon: '',
           data: 'Jun 12',
           time: '12:50'
+        },
+        {
+          message: [' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi ex iste, nisi reiciendis rerum sint? Et, iure, quisquam.'],
+          owner: 'Ivan',
+          icon: '',
+          data: 'Jun 12',
+          time: '12:56'
         }
       ]
     },

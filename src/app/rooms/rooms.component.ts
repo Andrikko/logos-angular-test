@@ -15,6 +15,7 @@ export class RoomsComponent implements OnInit {
 
   ngOnInit(): void {
     this.chatRooms = this.storageService.getAllChats();
+    this.storageService.currentChatSubject.next(this.storageService.getCurrentChat(0));
   }
 
   selectChat(index: number) {
