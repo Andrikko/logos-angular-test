@@ -150,5 +150,9 @@ export class StorageService {
   getCurrentChat(index: number) {
     return this.conversations[index];
   }
+  
+  ggg() {
+    console.log('a');
+  }
 
 }
