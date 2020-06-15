@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {StorageService} from '../services/storage.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('someInput') someInput: ElementRef;
+  
+  constructor(public storageService: StorageService) { }
 
   ngOnInit(): void {
+    
+  }
+
+  search() {
+    this.storageService.filterChatsSubject.next(this.someInput.nativeElement.value);
+    // ;
   }
 
 }

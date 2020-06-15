@@ -10,25 +10,19 @@
       <div *ngFor="let messageItem of message.message"
            appChatStyle
            [value]="message"
-           [addressedPerson]="chatInfo.addressedPerson"
-      >
+           [addressedPerson]="chatInfo.addressedPerson">
 
         <img src="{{chatInfo.icon}}" class="chat-icon">
         <div>
           <p>{{messageItem}}</p><br>
           <p class="chat-time">{{message.data}} {{message.time}}</p>
         </div>
-
-
       </div>
-
     </div>
   </div>
 
   <div class="chat-footer">
-    <form>
-      <input type="text" placeholder="Type your message">
-      <button type="submit"><i class="far fa-paper-plane"></i></button>
-    </form>
+      <input type="text" placeholder="Type your message" (change)="sendMessage()" #input>
+      <button (click)="sendMessage()"><i class="far fa-paper-plane"></i></button>
   </div>
 </div>

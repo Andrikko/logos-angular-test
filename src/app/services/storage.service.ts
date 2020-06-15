@@ -8,6 +8,7 @@ export class StorageService {
 
   conversations = [
     {
+      id: 456,
       addressedPerson: 'Oleg',
       icon: 'https://img.icons8.com/plasticine/100/000000/user.png',
       messages: [
@@ -49,6 +50,7 @@ export class StorageService {
       ]
     },
     {
+      id: 123,
       addressedPerson: 'Petro',
       icon: 'https://img.icons8.com/dusk/64/000000/user.png',
       messages: [
@@ -76,6 +78,7 @@ export class StorageService {
       ]
     },
     {
+      id: 900,
       addressedPerson: 'Roman',
       icon: 'https://img.icons8.com/clouds/100/000000/user-male.png',
       messages: [
@@ -103,6 +106,7 @@ export class StorageService {
       ]
     },
     {
+      id: 122,
       addressedPerson: 'Sofia',
       icon: 'https://img.icons8.com/plasticine/100/000000/user-female.png',
       messages: [
@@ -131,6 +135,7 @@ export class StorageService {
     }
   ];
   public currentChatSubject = new BehaviorSubject<any>(null);
+  public filterChatsSubject = new BehaviorSubject<string>('');
 
   constructor() {
   }
@@ -139,6 +144,7 @@ export class StorageService {
     return this.conversations.map(item => {
       return {
         // addressedPerson: item.messages[item.messages.length - 1].owner,
+        id: item.id,
         addressedPerson: item.addressedPerson,
         icon: item.icon,
         message: item.messages[item.messages.length - 1].message[item.messages[item.messages.length - 1].message.length - 1],
@@ -147,8 +153,8 @@ export class StorageService {
     });
   }
 
-  getCurrentChat(index: number) {
-    return this.conversations[index];
+  getCurrentChat(id: number) {
+    return this.conversations.filter(chat => chat.id === id)[0];
   }
 
 }

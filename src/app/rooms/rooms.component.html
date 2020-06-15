@@ -7,9 +7,9 @@
   <div class="chats-title">
     <span>Chats</span>
   </div>
-  <div *ngFor="let chatRoom of chatRooms; let i =index">
+  <div *ngFor="let chatRoom of filteredRooms; let i =index">
     <app-chat-room [chatInfo]="chatRoom"
-                   (click)="selectChat(i)">
+                   (click)="selectChat(chatRoom.id)">
     </app-chat-room>
   </div>
 </div>
