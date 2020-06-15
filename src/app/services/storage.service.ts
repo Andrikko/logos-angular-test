@@ -16,28 +16,35 @@ export class StorageService {
           owner: 'Oleg',
           icon: '',
           data: 'Jun 12',
-          time: '12:50'
+          time: '12:51'
         },
         {
           message: ['Hi, what are you doing? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi ex iste, nisi reiciendis rerum sint? Et, iure, quisquam.'],
           owner: 'Ivan',
           icon: '',
           data: 'Jun 12',
-          time: '12:50'
+          time: '12:52'
         },
         {
           message: ['Fine, what about you? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi ex iste, nisi reiciendis rerum sint? Et, iure, quisquam.'],
           owner: 'Oleg',
           icon: '',
           data: 'Jun 12',
-          time: '12:50'
+          time: '12:53'
         },
         {
           message: [' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi ex iste, nisi reiciendis rerum sint? Et, iure, quisquam.'],
           owner: 'Ivan',
           icon: '',
           data: 'Jun 12',
-          time: '12:56'
+          time: '12:54'
+        },
+        {
+          message: ['Lorem ipsum dolor sit amet, consectetur adipisicing elit.'],
+          owner: 'Oleg',
+          icon: '',
+          data: 'Jun 12',
+          time: '12:55'
         }
       ]
     },
