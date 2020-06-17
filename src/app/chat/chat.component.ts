@@ -1,5 +1,6 @@
 import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {StorageService} from '../services/storage.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-chat',
@@ -13,7 +14,6 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') scrollMe: ElementRef;
 
   constructor(public storageService: StorageService) {
-
   }
 
   ngOnInit(): void {
@@ -22,15 +22,11 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     });
   }
 
-
   ngAfterViewChecked() {
     this.scrollMe.nativeElement.scrollTo(0, this.scrollMe.nativeElement.scrollHeight);
   }
 
-  sendMessage() {
-    // console.log(this.input.nativeElement.value);
-    // console.log(this.chatInfo);
-
+  async sendMessage() {
     const newMessage = {
       data: 'Jun 12',
       icon: '',
@@ -42,11 +38,18 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     this.chatInfo.messages.push(newMessage);
     this.input.nativeElement.value = '';
 
-    // data: "Jun 12"
-    // icon: ""
-    // message: ["Hi!"]
-    // owner: "Oleg"
-    // time: "12:51"
+    const answer = {message: [], data: null, icon: null, owner: this.chatInfo.addressedPerson, time: null};
+    answer.data = moment().format('MMM DD');
+    answer.icon = '';
+    answer.time = new Date().getHours() + ':' + new Date().getMinutes();
+    await this.storageService.getRandomAnswer()
+      .then(data => {
+        answer.message.push(data['value']);
+        this.chatInfo.messages.push(answer);
+
+        this.storageService.updateCurrentChatInfo.next({answer, id: this.chatInfo.id});
+      })
+      .catch(err => console.error(err));
   }
 
 }

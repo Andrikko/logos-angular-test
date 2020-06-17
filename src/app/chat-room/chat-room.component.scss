@@ -1,5 +1,5 @@
 .message-info{
-  width: 55%;
+  max-width: 55%;
   //display: flex;
 }
 .message-block{
@@ -7,6 +7,8 @@
   align-items: center;
   border-bottom: 1px solid #D3D3D3;
   height: 80px;
+  box-sizing: border-box;
+  max-height: 100px;
 }
 .message-block:hover{
   background-color: #F6F4F6;
@@ -14,6 +16,9 @@
 .chat-message{
   font-size: 15px;
   color: #9E9E9E;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .message-time{
   font-size: 15px;

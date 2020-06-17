@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -136,8 +137,9 @@ export class StorageService {
   ];
   public currentChatSubject = new BehaviorSubject<any>(null);
   public filterChatsSubject = new BehaviorSubject<string>('');
+  public updateCurrentChatInfo = new BehaviorSubject<any>({});
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   getAllChats() {
@@ -153,11 +155,17 @@ export class StorageService {
     });
   }
 
-  getCurrentChat(id: number) {
+  getCurrentChat(id: number): any {
     return this.conversations.filter(chat => chat.id === id)[0];
   }
 
-
+  async getRandomAnswer() {
+    return new Promise((resolve, reject) => {
+      fetch('https://api.chucknorris.io/jokes/random').then(data => data.json())
+        .then(data => resolve(data))
+        .catch(err => reject(err));
+    });
+  }
 
 
 }
