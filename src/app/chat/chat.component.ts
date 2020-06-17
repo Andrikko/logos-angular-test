@@ -11,8 +11,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   @ViewChild('input') input: ElementRef;
   @ViewChild('scrollMe') scrollMe: ElementRef;
-  
+
   constructor(public storageService: StorageService) {
+
   }
 
   ngOnInit(): void {
@@ -38,6 +39,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     };
     newMessage.message.push(this.input.nativeElement.value);
     this.chatInfo.messages.push(newMessage);
+    this.input.nativeElement.value = '';
 
     // data: "Jun 12"
     // icon: ""
