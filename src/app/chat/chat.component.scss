@@ -13,7 +13,7 @@
   align-items: center;
 }
 .chat-header{
-  min-height: 15%;
+  min-height: 10%;
   border-bottom: 1px solid #D3D3D3;
   span{
     font-size: 20px;
@@ -22,7 +22,7 @@
 }
 .chat-footer{
   border-top: 1px solid #D3D3D3;
-  min-height: 20%;
+  min-height: 15%;
   justify-content: center;
     div {
       position: relative;
@@ -64,7 +64,7 @@
 .chat-main{
   display: flex;
   flex-direction: column;
-  min-height: 65%;
+  min-height: 75%;
   padding: 5px 10px 5px 0px;
   overflow-y: auto;
   img{
@@ -84,4 +84,11 @@
     padding: 0px 15px 0px 5px;
   }
 }
-
+@media screen and (max-width: 768px){
+  .chat-footer, .chat-main, .chat-header{
+    min-height: auto;
+  }
+  .chat-footer, .chat-header{
+    padding: 7px 0px;
+  }
+}

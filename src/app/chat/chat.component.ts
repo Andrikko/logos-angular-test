@@ -22,6 +22,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     });
   }
 
+
   ngAfterViewChecked() {
     this.scrollMe.nativeElement.scrollTo(0, this.scrollMe.nativeElement.scrollHeight);
   }
@@ -30,12 +31,12 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     // console.log(this.input.nativeElement.value);
     // console.log(this.chatInfo);
 
-    let newMessage = {
-      data: "Jun 12",
-      icon: "",
-      owner: "Ivan",
+    const newMessage = {
+      data: 'Jun 12',
+      icon: '',
+      owner: 'Ivan',
       message: [],
-      time: "23:12"
+      time: '23:12'
     };
     newMessage.message.push(this.input.nativeElement.value);
     this.chatInfo.messages.push(newMessage);

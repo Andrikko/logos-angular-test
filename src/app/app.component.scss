@@ -12,9 +12,15 @@
 .left-side{
   border: 1px solid #D3D3D3;
   height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 .right-side{
   border: 1px solid #D3D3D3;
   height: 100%;
   border-left: 0px;
 }
+
+@media screen and (max-width: 768px){
+}
+

@@ -156,9 +156,8 @@ export class StorageService {
   getCurrentChat(id: number) {
     return this.conversations.filter(chat => chat.id === id)[0];
   }
-  
-  ggg() {
-    console.log('a');
-  }
+
+
+
 
 }
