@@ -1,145 +1,43 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import * as helpers from '../helpers/contants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
 
-  conversations = [
-    {
-      id: 456,
-      addressedPerson: 'Oleg',
-      icon: 'https://img.icons8.com/plasticine/100/000000/user.png',
-      messages: [
-        {
-          message: ['Hi!'],
-          owner: 'Oleg',
-          icon: '',
-          data: 'Jun 12',
-          time: '12:51'
-        },
-        {
-          message: ['Hi, what are you doing? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi ex iste, nisi reiciendis rerum sint? Et, iure, quisquam.'],
-          owner: 'Ivan',
-          icon: '',
-          data: 'Jun 12',
-          time: '12:52'
-        },
-        {
-          message: ['Fine, what about you? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi ex iste, nisi reiciendis rerum sint? Et, iure, quisquam.'],
-          owner: 'Oleg',
-          icon: '',
-          data: 'Jun 12',
-          time: '12:53'
-        },
-        {
-          message: [' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi ex iste, nisi reiciendis rerum sint? Et, iure, quisquam.'],
-          owner: 'Ivan',
-          icon: '',
-          data: 'Jun 12',
-          time: '12:54'
-        },
-        {
-          message: ['Lorem ipsum dolor sit amet, consectetur adipisicing elit.'],
-          owner: 'Oleg',
-          icon: '',
-          data: 'Jun 12',
-          time: '12:55'
-        }
-      ]
-    },
-    {
-      id: 123,
-      addressedPerson: 'Petro',
-      icon: 'https://img.icons8.com/dusk/64/000000/user.png',
-      messages: [
-        {
-          message: ['Hi', 'how are you?'],
-          owner: 'Petro',
-          icon: '',
-          data: 'Jun 11',
-          time: '14:35'
-        },
-        {
-          message: ['Hi, what are you doing?'],
-          owner: 'Oleg',
-          icon: '',
-          data: 'Jun 11',
-          time: '14:35'
-        },
-        {
-          message: ['Fine, what about you?'],
-          owner: 'Petro',
-          icon: '',
-          data: 'Jun 11',
-          time: '14:35'
-        }
-      ]
-    },
-    {
-      id: 900,
-      addressedPerson: 'Roman',
-      icon: 'https://img.icons8.com/clouds/100/000000/user-male.png',
-      messages: [
-        {
-          message: ['Hi', 'how are you?'],
-          owner: 'Roman',
-          icon: '',
-          data: 'Jun 10',
-          time: '19:38'
-        },
-        {
-          message: ['Hi, what are you doing?'],
-          owner: 'Oleg',
-          icon: '',
-          data: 'Jun 10',
-          time: '19:38'
-        },
-        {
-          message: ['Fine, what about you?'],
-          owner: 'Roman',
-          icon: '',
-          data: 'Jun 10',
-          time: '19:38'
-        }
-      ]
-    },
-    {
-      id: 122,
-      addressedPerson: 'Sofia',
-      icon: 'https://img.icons8.com/plasticine/100/000000/user-female.png',
-      messages: [
-        {
-          message: ['Hi', 'how are you?'],
-          owner: 'Sofia',
-          icon: '',
-          data: 'Jun 8',
-          time: '09:22'
-        },
-        {
-          message: ['Hi, what are you doing?'],
-          owner: 'Oleg',
-          icon: '',
-          data: 'Jun 8',
-          time: '09:22'
-        },
-        {
-          message: ['Fine, what about you?'],
-          owner: 'Sofia',
-          icon: '',
-          data: 'Jun 8',
-          time: '09:22'
-        }
-      ]
-    }
-  ];
+  conversations: any = [];
+  headers: any;
+
   public currentChatSubject = new BehaviorSubject<any>(null);
   public filterChatsSubject = new BehaviorSubject<string>('');
   public updateCurrentChatInfo = new BehaviorSubject<any>({});
 
   constructor(private http: HttpClient) {
+    this.headers = new Headers();
+    this.headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+    this.headers.append('Access-Control-Allow-Credentials', 'true');
+  }
+
+  async getData() {
+    const headers = new Headers();
+    headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+    headers.append('Access-Control-Allow-Credentials', 'true');
+
+    await fetch('http://localhost:3000/users', {
+      headers
+    })
+      .then(data => data.json())
+      .then(data => {
+        this.conversations = data.conversations;
+      })
+      .catch(err => console.error(err));
+  }
+
+  updateData(data) {
+    this.conversations = [...data];
   }
 
   getAllChats() {
@@ -165,6 +63,24 @@ export class StorageService {
         .then(data => resolve(data))
         .catch(err => reject(err));
     });
+  }
+
+  async sendMessage(messageData: any) {
+    return new Promise((resolve, reject) => {
+      fetch(helpers.default.host + 'users', {
+        body: JSON.stringify(messageData),
+        method: 'post',
+        headers: {
+          'Access-Control-Allow-Origin': 'http://localhost:3000',
+          'Access-Control-Allow-Credentials': 'true',
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(res => res.json())
+        .then(res => resolve(res))
+        .catch(err => reject(err));
+    });
+
   }
 
 

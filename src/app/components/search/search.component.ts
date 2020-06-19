@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {StorageService} from '../services/storage.service';
+import {StorageService} from '../../services/storage.service';
 
 @Component({
   selector: 'app-search',

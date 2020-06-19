@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {StorageService} from '../services/storage.service';
+import {StorageService} from '../../services/storage.service';
 import {analyticsPackageSafelist} from '@angular/cli/models/analytics';
 
 @Component({
@@ -15,9 +15,11 @@ export class RoomsComponent implements OnInit {
   constructor(public storageService: StorageService) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    await this.storageService.getData();
     this.chatRooms = this.storageService.getAllChats();
     this.storageService.currentChatSubject.next(this.storageService.getCurrentChat(this.chatRooms[0].id));
+    // this.storageService.currentChatSubject.next(this.storageService.getCurrentChat(1));
 
     this.storageService.filterChatsSubject.subscribe(searchValue => {
       this.filteredRooms = this.chatRooms.filter(item => {

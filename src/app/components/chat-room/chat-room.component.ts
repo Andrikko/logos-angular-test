@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {StorageService} from '../services/storage.service';
+import {StorageService} from '../../services/storage.service';
 
 @Component({
   selector: 'app-chat-room',

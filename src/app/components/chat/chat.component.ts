@@ -1,5 +1,5 @@
 import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {StorageService} from '../services/storage.service';
+import {StorageService} from '../../services/storage.service';
 import * as moment from 'moment';
 
 @Component({
@@ -23,7 +23,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    this.scrollMe.nativeElement.scrollTo(0, this.scrollMe.nativeElement.scrollHeight);
+    if (this.scrollMe && this.scrollMe.nativeElement) {
+      this.scrollMe.nativeElement.scrollTo(0, this.scrollMe.nativeElement.scrollHeight);
+    }
   }
 
   async sendMessage() {
@@ -43,11 +45,19 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     answer.icon = '';
     answer.time = new Date().getHours() + ':' + new Date().getMinutes();
     await this.storageService.getRandomAnswer()
-      .then(data => {
+      .then(async data => {
         answer.message.push(data['value']);
         this.chatInfo.messages.push(answer);
 
         this.storageService.updateCurrentChatInfo.next({answer, id: this.chatInfo.id});
+        const obj = this.chatInfo;
+        obj.messages = obj.messages.splice(obj.messages.length - 2, obj.messages.length);
+        await this.storageService.sendMessage(obj)
+          .then((newData: any[]) => {
+            this.chatInfo = newData.filter(item => item.id === this.chatInfo.id)[0];
+            this.storageService.updateData(newData);
+          })
+          .catch(err => console.error(err));
       })
       .catch(err => console.error(err));
   }

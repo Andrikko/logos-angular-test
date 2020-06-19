@@ -4,15 +4,11 @@ import {SimplePlaceholderMapper} from '@angular/compiler/src/i18n/serializers/se
 @Directive({
   selector: '[appCutMessage]'
 })
-export class CutMessageDirective implements OnChanges{
+export class CutMessageDirective{
 
   @Input('message') message: string;
-  constructor(private el: ElementRef) {
-  }
   
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes.message.currentValue);
-    
+  constructor(private el: ElementRef) {
   }
 
 }
