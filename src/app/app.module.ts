@@ -10,6 +10,7 @@ import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { SearchComponent } from './components/search/search.component';
 import { ChatStyleDirective } from './directives/chat-style.directive';
 import { CutMessageDirective } from './directives/cut-message.directive';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CutMessageDirective } from './directives/cut-message.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    PickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

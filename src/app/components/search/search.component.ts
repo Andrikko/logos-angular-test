@@ -9,11 +9,11 @@ import {StorageService} from '../../services/storage.service';
 export class SearchComponent implements OnInit {
 
   @ViewChild('someInput') someInput: ElementRef;
-  
+
   constructor(public storageService: StorageService) { }
 
   ngOnInit(): void {
-    
+
   }
 
   search() {

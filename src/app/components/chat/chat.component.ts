@@ -62,4 +62,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       .catch(err => console.error(err));
   }
 
+
+
+
 }
